@@ -101,3 +101,12 @@ For vanilla CSS, you can include it at the root directory and add it to the `fil
 ## Publishing to NPM
 
 We recommend using [np](https://github.com/sindresorhus/np).
+
+## Scenarios
+
+- Are any of my accounts going into overdraft?
+- How do I limit my spending to avoid going into overdraft?
+- Will I meet my savings goals
+  - Retirement
+  - College
+- Am I at risk for a tax penalty next year?

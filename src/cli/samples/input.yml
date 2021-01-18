@@ -1,0 +1,21 @@
+accounts:
+  - name: Chase Checking
+    type: debit
+    balance: 1000.00
+expenses:
+  - name: Power Bill
+    amount: 100.00
+    from: Chase Checking
+    recurrence:
+      type: monthly
+      dayOfMonth: 1
+incomes:
+  - name: Salary
+    into: Chase Checking
+    amount: 50.00
+    recurrence:
+      type: monthly
+      dayOfMonth: 1
+goals:
+  - name: No Overdraft
+    type: all-debit-accounts-have-positive-balance
