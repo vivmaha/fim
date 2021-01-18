@@ -1,3 +1,5 @@
+![](https://github.com/vivmaha/fim/workflows/CI/badge.svg)
+
 # Build
 
 `npm run build` Produces `./dist`
