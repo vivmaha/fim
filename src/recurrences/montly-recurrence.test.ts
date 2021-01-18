@@ -14,6 +14,8 @@ const testRecurrence = (
 
 
 describe("recurrences/montly-recurrence", () => {
+    // It does actually get expected in `testRecurrence`
+    // eslint-disable-next-line jest/expect-expect
     it("handles normal dates", () => {
         testRecurrence(
             createMontlyReccurance(15),
@@ -37,7 +39,7 @@ describe("recurrences/montly-recurrence", () => {
                 ["2000/10/17", false],
                 ["2000/10/18", false],
                 ["2000/10/19", false],
-                ["2000/10/20", false],            
+                ["2000/10/20", false],
                 ["2000/10/21", false],
                 ["2000/10/22", false],
                 ["2000/10/23", false],

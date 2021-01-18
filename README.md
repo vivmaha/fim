@@ -8,3 +8,7 @@
 `npm run test -- --verbose`
 `npm run test -- --watch`
 See jest docs for other options.
+
+# Lint
+
+`npm run lint` Runs linter

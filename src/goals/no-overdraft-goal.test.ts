@@ -4,7 +4,6 @@ import { createMock } from "../test-helpers";
 
 const testOverdraft = (
     testData: [string, number][],
-    expected: FimGoalResult
 ) => {
     const accounts = testData.map(
         ([name, balance]) => 
@@ -17,33 +16,31 @@ const testOverdraft = (
     );
     const verify = verifyNoOverDraftGoal(accounts);
     const actual = verify(new Date());
-    expect(actual).toMatchObject(expected);
+    return actual;
 }
 
 describe("goals/no-overdraft-goal", () => {
     it("handles basic overdraft", () => {
-        testOverdraft(
+        const actual = testOverdraft(
             [
                 ["Account A", 1000],
                 ["Account B", -1000],
                 ["Account C", 1000],
-            ],
-            {
-                message: "Account [Account B] is overdraft.",
-                type: "failed"
-            }
+            ]
         );
+        expect(actual).toMatchObject<FimGoalResult>({
+            message: "Account [Account B] is overdraft.",
+            type: "failed"
+        })
     });
     it("handles basic no overdraft", () => {
-        testOverdraft(
+        const actual = testOverdraft(
             [
                 ["Account A", 1000],
                 ["Account B", 1000],
                 ["Account C", 1000],
-            ],
-            {
-                type: "passed"
-            }
+            ]
         );
+        expect(actual).toMatchObject<FimGoalResult>({ type: "passed" });
     });
 });

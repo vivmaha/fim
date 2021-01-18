@@ -118,7 +118,7 @@ describe("model.verify", () => {
             expect(result).toHaveLength(2);
             const [failingGoalResult, passingGoalResult] = result;
             if (failingGoalResult.result.type === "passed") {
-                fail();
+                throw new Error();
             }
             expect(dateToString(failingGoalResult.result.on)).toBe("2000-01-02");
             expect(failingGoalResult.result.message).toBe("failed-message");

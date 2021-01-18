@@ -15,6 +15,7 @@ import {
   FimGoal,
   FimIncome,
   FimModel,
+  FimReccurance,
 } from '../../model';
 
 export const createAccountFromJson = (json: FimAccountJson): FimAccount => ({
@@ -30,7 +31,7 @@ export const createAccountFromJson = (json: FimAccountJson): FimAccount => ({
   getType: () => json.type,
 });
 
-export const createRecurrenceFromJson = (json: FimReccurenceJson) => {
+export const createRecurrenceFromJson = (json: FimReccurenceJson): FimReccurance => {
   switch (json.type) {
     case 'monthly':
       return createMontlyReccurance(json.dayOfMonth);
