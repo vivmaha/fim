@@ -23,6 +23,6 @@
     // error out if import and file system have a casing mismatch. Recommended by TS
     "forceConsistentCasingInFileNames": true,
     // Provide full support for iterables in for..of, spread and destructuring when targeting ES5 or ES3.
-    "downlevelIteration": true,
+    "downlevelIteration": true
   }
 }

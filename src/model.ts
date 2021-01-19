@@ -77,10 +77,10 @@ export const createFimModel = (
 ): FimModel => {
   return {
     toJson: () => ({
-      accounts: accounts.map(account => account.toJson()),
-      expenses: expenses.map(expense => expense.toJson()),
-      goals: goals.map(goal => goal.toJson()),
-      incomes: incomes.map(income => income.toJson()),
+      accounts: accounts.map((account) => account.toJson()),
+      expenses: expenses.map((expense) => expense.toJson()),
+      goals: goals.map((goal) => goal.toJson()),
+      incomes: incomes.map((income) => income.toJson()),
     }),
     verify: (start: Date, end: Date) => {
       const results: FimResult[] = [];

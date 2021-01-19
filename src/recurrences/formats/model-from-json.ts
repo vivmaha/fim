@@ -31,7 +31,9 @@ export const createAccountFromJson = (json: FimAccountJson): FimAccount => ({
   getType: () => json.type,
 });
 
-export const createRecurrenceFromJson = (json: FimReccurenceJson): FimReccurance => {
+export const createRecurrenceFromJson = (
+  json: FimReccurenceJson
+): FimReccurance => {
   switch (json.type) {
     case 'monthly':
       return createMontlyReccurance(json.dayOfMonth);
@@ -95,7 +97,7 @@ export const createFimModelFromJson = (json: FimModelJson): FimModel => {
   const accounts = json.accounts.map(createAccountFromJson);
   const getAccountByName = (() => {
     const accountsMap = new Map(
-      accounts.map(account => [account.getName(), account])
+      accounts.map((account) => [account.getName(), account])
     );
     return (name: string) => {
       const account = accountsMap.get(name);
@@ -105,13 +107,13 @@ export const createFimModelFromJson = (json: FimModelJson): FimModel => {
       return account;
     };
   })();
-  const expenses = json.expenses.map(expenseJson =>
+  const expenses = json.expenses.map((expenseJson) =>
     createExpenseFromJson(expenseJson, getAccountByName)
   );
-  const incomes = json.incomes.map(incomeJson =>
+  const incomes = json.incomes.map((incomeJson) =>
     createIncomeFromJson(incomeJson, getAccountByName)
   );
-  const goals = json.goals.map(goalJson =>
+  const goals = json.goals.map((goalJson) =>
     createGoalFromJson(goalJson, accounts)
   );
   return createFimModel(accounts, expenses, incomes, goals);
