@@ -5,7 +5,7 @@ import {
   FimGoalJson,
   FimIncomeJson,
   FimModelJson,
-} from './recurrences/formats/model-json';
+} from "./recurrences/formats/model-json";
 
 export type FimReccurance = {
   occursOn(date: Date): boolean;
@@ -38,10 +38,10 @@ export type FimIncome = {
 
 export type FimGoalResult =
   | {
-      type: 'passed';
+      type: "passed";
     }
   | {
-      type: 'failed';
+      type: "failed";
       message: string;
     };
 
@@ -55,10 +55,10 @@ export type FimResult = {
   goal: FimGoal;
   result:
     | {
-        type: 'passed';
+        type: "passed";
       }
     | {
-        type: 'failed';
+        type: "failed";
         message: string;
         on: Date;
       };
@@ -104,7 +104,7 @@ export const createFimModel = (
         const newResults: FimResult[] = [];
         for (const goal of goalsToCheck.values()) {
           const goalResult = goal.verify(current);
-          if (goalResult.type === 'failed') {
+          if (goalResult.type === "failed") {
             const { type, message } = goalResult;
             newResults.push({
               goal,
@@ -126,7 +126,7 @@ export const createFimModel = (
         results.push({
           goal,
           result: {
-            type: 'passed',
+            type: "passed",
           },
         });
       }

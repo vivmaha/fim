@@ -1,3 +1,3 @@
-import { run } from './cli/cli';
+import { run } from "./cli/cli";
 
 run().then();

@@ -1,4 +1,4 @@
-export type FimAccountType = 'debit';
+export type FimAccountType = "debit";
 
 export type FimAccountJson = {
   name: string;
@@ -8,7 +8,7 @@ export type FimAccountJson = {
 };
 
 export type FimReccurenceJson = {
-  type: 'monthly';
+  type: "monthly";
   dayOfMonth: number;
 };
 
@@ -29,7 +29,7 @@ export type FimIncomeJson = {
 export type FimGoalJson = {
   name: string;
 } & {
-  type: 'all-debit-accounts-have-positive-balance';
+  type: "all-debit-accounts-have-positive-balance";
 };
 
 export type FimModelJson = {

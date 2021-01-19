@@ -1,6 +1,6 @@
-import { verifyNoOverDraftGoal } from './no-overdraft-goal';
-import { FimAccount, FimGoalResult } from '../model';
-import { createMock } from '../test-helpers';
+import { verifyNoOverDraftGoal } from "./no-overdraft-goal";
+import { FimAccount, FimGoalResult } from "../model";
+import { createMock } from "../test-helpers";
 
 const testOverdraft = (testData: [string, number][]) => {
   const accounts = testData.map(([name, balance]) =>
@@ -8,7 +8,7 @@ const testOverdraft = (testData: [string, number][]) => {
       getName: () => name,
       getBalance: () => balance,
       // TODO - When more types are supported, we need to test for it.
-      getType: () => 'debit',
+      getType: () => "debit",
     })
   );
   const verify = verifyNoOverDraftGoal(accounts);
@@ -16,24 +16,24 @@ const testOverdraft = (testData: [string, number][]) => {
   return actual;
 };
 
-describe('goals/no-overdraft-goal', () => {
-  it('handles basic overdraft', () => {
+describe("goals/no-overdraft-goal", () => {
+  it("handles basic overdraft", () => {
     const actual = testOverdraft([
-      ['Account A', 1000],
-      ['Account B', -1000],
-      ['Account C', 1000],
+      ["Account A", 1000],
+      ["Account B", -1000],
+      ["Account C", 1000],
     ]);
     expect(actual).toMatchObject<FimGoalResult>({
-      message: 'Account [Account B] is overdraft.',
-      type: 'failed',
+      message: "Account [Account B] is overdraft.",
+      type: "failed",
     });
   });
-  it('handles basic no overdraft', () => {
+  it("handles basic no overdraft", () => {
     const actual = testOverdraft([
-      ['Account A', 1000],
-      ['Account B', 1000],
-      ['Account C', 1000],
+      ["Account A", 1000],
+      ["Account B", 1000],
+      ["Account C", 1000],
     ]);
-    expect(actual).toMatchObject<FimGoalResult>({ type: 'passed' });
+    expect(actual).toMatchObject<FimGoalResult>({ type: "passed" });
   });
 });

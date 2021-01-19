@@ -6,5 +6,5 @@
     "target": "ESNext",
     "downlevelIteration": true,
     "moduleResolution": "Node"
-  },
+  }
 }

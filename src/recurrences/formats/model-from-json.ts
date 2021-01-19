@@ -1,4 +1,4 @@
-import { verifyNoOverDraftGoal } from '../../goals/no-overdraft-goal';
+import { verifyNoOverDraftGoal } from "../../goals/no-overdraft-goal";
 import {
   FimAccountJson,
   FimExpenseJson,
@@ -6,8 +6,8 @@ import {
   FimIncomeJson,
   FimModelJson,
   FimReccurenceJson,
-} from './model-json';
-import { createMontlyReccurance } from '../montly-recurrence';
+} from "./model-json";
+import { createMontlyReccurance } from "../montly-recurrence";
 import {
   createFimModel,
   FimAccount,
@@ -16,7 +16,7 @@ import {
   FimIncome,
   FimModel,
   FimReccurance,
-} from '../../model';
+} from "../../model";
 
 export const createAccountFromJson = (json: FimAccountJson): FimAccount => ({
   deposit: (_name, amount) => {
@@ -35,7 +35,7 @@ export const createRecurrenceFromJson = (
   json: FimReccurenceJson
 ): FimReccurance => {
   switch (json.type) {
-    case 'monthly':
+    case "monthly":
       return createMontlyReccurance(json.dayOfMonth);
     default:
       throw new Error(`Unknown recurrence type [${json.type}].`);
@@ -44,7 +44,7 @@ export const createRecurrenceFromJson = (
 
 const verifyGoalFromJson = (json: FimGoalJson, accounts: FimAccount[]) => {
   switch (json.type) {
-    case 'all-debit-accounts-have-positive-balance':
+    case "all-debit-accounts-have-positive-balance":
       return verifyNoOverDraftGoal(accounts);
     default:
       throw new Error(`Unknown goal type: [${json.type}]`);
