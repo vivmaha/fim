@@ -5,7 +5,7 @@ import {
   FimGoalJson,
   FimIncomeJson,
   FimModelJson,
-} from "./recurrences/formats/model-json";
+} from "./formats/model-json";
 
 export type FimReccurance = {
   occursOn(date: Date): boolean;

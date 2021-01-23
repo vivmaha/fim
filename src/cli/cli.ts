@@ -1,6 +1,6 @@
 import { Command } from "commander";
 import { readFile } from "fs/promises";
-import { createFimModelFromYaml } from "../recurrences/formats/model-from-yaml";
+import { createFimModelFromYaml } from "../formats/model-from-yaml";
 
 export const run = async (): Promise<void> => {
   const program = new Command();

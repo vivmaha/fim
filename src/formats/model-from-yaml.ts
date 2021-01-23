@@ -1,7 +1,7 @@
 import { safeLoad } from "js-yaml";
 import { createFimModelFromJson } from "./model-from-json";
 import { FimModelJson } from "./model-json";
-import { FimModel } from "../../model";
+import { FimModel } from "../model";
 
 export const createFimModelFromYaml = (yaml: string): FimModel => {
   const json = safeLoad(yaml);

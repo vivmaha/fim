@@ -1,4 +1,4 @@
-import { verifyNoOverDraftGoal } from "../../goals/no-overdraft-goal";
+import { verifyNoOverDraftGoal } from "../goals/no-overdraft-goal";
 import {
   FimAccountJson,
   FimExpenseJson,
@@ -7,7 +7,7 @@ import {
   FimModelJson,
   FimReccurenceJson,
 } from "./model-json";
-import { createMontlyReccurance } from "../montly-recurrence";
+import { createMontlyReccurance } from "../recurrences/montly-recurrence";
 import {
   createFimModel,
   FimAccount,
@@ -16,7 +16,7 @@ import {
   FimIncome,
   FimModel,
   FimReccurance,
-} from "../../model";
+} from "../model";
 
 export const createAccountFromJson = (json: FimAccountJson): FimAccount => ({
   deposit: (_name, amount) => {
